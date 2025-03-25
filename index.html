@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script
+      src="https://kit.fontawesome.com/d9a2442d2e.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav>
+      <a href=""><img src="KhodeLibrary2.jpg" alt="" /></a>
+      <ul>
+        <li>Books</li>
+        <li>Visitors</li>
+        <li>Cards</li>
+        <li>Statistics</li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <div class="add-book">
+        <p>ALL BOOKS:</p>
+        <button id="btnAddBook">New Book</button>
+      </div>
+      <hr />
+      <div class="form-section">
+        <div class="sort">
+          <p>Sort By:</p>
+          <select action="">
+            <option value="name">Name</option>
+            <option value="author's name">Author's name</option>
+            <option value="number of copies">Number of copies</option>
+          </select>
+          <button id="sortBtn">Sort</button>
+        </div>
+        <div class="search">
+          <p>Search:</p>
+          <input type="text" id="search" placeholder="Search book" />
+          <button id="btnSearch">Search</button>
+        </div>
+      </div>
+      <div class="list">
+        <ul class="header">
+          <li id="id">ID</li>
+          <li>Atomic Habits</li>
+          <li>James Clear</li>
+          <li>15</li>
+          <li id="edit">Edit</li>
+        </ul>
+      </div>
+    </div>
+
+    <div id="popup-container" class="popup">
+      <div class="popup-content">
+        <span id="close-btn" class="close-btn">X</span>
+        <h2>Add New Book</h2>
+        <label for="book-name">Book Name:</label>
+        <input type="text" id="book-name" placeholder="Enter book name" />
+
+        <label for="author-name">Author's Name:</label>
+        <input type="text" id="author-name" placeholder="Enter author's name" />
+
+        <label for="num-copies">Number of Copies:</label>
+        <input
+          type="number"
+          id="num-copies"
+          placeholder="Enter number of copies"
+        />
+
+        <button id="submit-book">Add Book</button>
+      </div>
+    </div>
+
+    <!-- New Edit Book Popup Container -->
+    <div id="edit-popup-container" class="popup-container">
+      <div class="popup-content">
+        <span id="close-edit-popup" class="close-btn">X</span>
+        <h2>Edit Book</h2>
+        <label for="edit-book-name">Book Name</label>
+        <input type="text" id="edit-book-name" required />
+
+        <label for="edit-author-name">Author</label>
+        <input type="text" id="edit-author-name" required />
+
+        <label for="edit-num-copies">Number of Copies</label>
+        <input type="number" id="edit-num-copies" required />
+
+        <button type="submit" id="submit-edit-book">Save Changes</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
