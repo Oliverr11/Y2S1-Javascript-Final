@@ -4,71 +4,53 @@
   font-family: "Roboto", sans-serif;
 }
 body {
-  background-color: #f5eedc;
-}
-nav a img {
-  width: 80px;
-  border-radius: 50px;
-}
-
-nav a span {
-  margin: 10px;
+  background-color: #f5eedc !important;
 }
 nav {
-  overflow: hidden;
-
-  height: 100px;
   background-color: #183b4e;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
-nav a {
-  margin: 3%;
-  align-items: center;
+.navbar-nav li a {
+  color: white;
 }
-nav ul {
-  display: flex;
-  width: 100%;
-
-  font-size: 25px;
-  justify-content: space-around;
-  list-style: none;
-  color: #f5eedc;
+.container-fluid {
+  padding: 0 7% !important;
 }
-nav ul li {
-  align-items: center;
-  padding: 5%;
+#logo {
+  width: 70px;
+  border-radius: 50px;
 }
-nav ul li:hover {
-  color: #dda853;
-  background-color: #0f232e;
-}
-
 .container {
   padding: 0 5%;
 }
-.add-book {
+.add-book,
+.add-visitor,
+.add-card {
   margin: 3% 0px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.add-book p {
+.add-book p,
+.add-visitor p,
+.add-card p {
   color: #183b4e;
   font-size: 25px;
   font-weight: bold;
 }
-.add-book button {
+.add-book button,
+.add-visitor button,
+.add-card button {
   width: 15%;
   height: 50px;
   border: none;
   border-radius: 20px;
-  background-color: #183b4e;
+  background-color: #27548a;
   color: #f5eedc;
   font-size: 15px;
 }
-.add-book button:hover {
+.add-book button:hover,
+.add-visitor button:hover,
+.add-card button:hover {
   background-color: #0f232e;
 }
 .form-section {
@@ -107,24 +89,51 @@ nav ul li:hover {
   color: #f5eedc;
   font-size: 15px;
 }
+.header {
+  padding: 0;
+}
+.header li {
+  font-weight: bold;
+}
 
-.list .header {
+.bookList .header,
+.visitorList .header,
+.cardList .header {
   display: flex;
   list-style: none;
   background-color: #183b4e;
   color: #dda853;
 }
 
-.list .header li {
+.bookList .header li,
+.visitorList .header li,
+.cardList .header li {
   width: 50%;
   padding: 1%;
   border: 1px solid black;
 }
+
+.bookList .items,
+.visitorList .items,
+.cardList .items {
+  transition: 0.8s;
+}
+.bookList .items:hover,
+.visitorList .items:hover,
+.cardList .items:hover {
+  transition: 0.2s;
+  background-color: #dda853;
+  box-shadow: 1px 2px 15px #183b4e;
+  transform: scale(1.05);
+  font-weight: bold;
+}
 #id {
+  text-align: center;
   width: 8%;
 }
 #edit {
   width: 7%;
+  text-align: center;
 }
 #year {
   width: 10%;
@@ -133,12 +142,29 @@ nav ul li:hover {
 #pages {
   width: 20%;
 }
-
-.list .items {
+#return {
+  text-align: center;
+  width: 20%;
+}
+.items,
+.header {
+  margin-bottom: 0;
+}
+.bookList,
+.visitorList,
+.cardList {
+  margin: 0;
+}
+.bookList .items,
+.visitorList .items,
+.cardList .items {
+  padding: 0;
   display: flex;
   list-style: none;
 }
-.list .items li {
+.bookList .items li,
+.visitorList .items li,
+.cardList .items li {
   width: 50%;
   padding: 1%;
   border: 1px solid black;
@@ -153,7 +179,7 @@ nav ul li:hover {
   position: relative;
 }
 .edit-btn {
-  font-size: 20px;
+  font-size: 15px;
   border: none;
   background: transparent;
   color: #183b4e;
