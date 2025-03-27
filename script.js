@@ -479,7 +479,6 @@ try {
         }
         return false;
       }
-      alert(visitorToEdit.id);
     });
     if (hasActiveBorrowings) {
       alert("Cannot delete this visitor - they have active book borrowings!");
@@ -598,7 +597,9 @@ try {
         Cards.length > 0 ? Math.max(...Cards.map((card) => card.id)) : 0;
       let cardId = maxId + 1;
 
-      const book = Books.find((b) => b.id === parseInt(bookId));
+      const book = Books.find((b) => b.id == parseInt(bookId));
+      const visitor = Vistiors.find((v) => v.id == parseInt(vistorId));
+
       if (book.copies > 0) {
         let newCard = {
           id: cardId,
@@ -608,11 +609,13 @@ try {
           returnDate: null,
         };
         book.copies -= 1;
-
+        book.borrowedCount += 1;
+        visitor.booksBorrowed += 1;
         Cards.push(newCard);
 
         saveData("library-cards", Cards);
         saveData("library-books", Books);
+        saveData("library-visitors", Vistiors);
 
         popup.style.display = "none";
         document.getElementById("card-visitor-name").value = "";
