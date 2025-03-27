@@ -301,9 +301,14 @@ try {
       return;
     }
     Books = Books.filter((book) => book.id != bookToEdit.id);
-    saveData("library-books", Books);
-    renderBooks();
+    Cards = Cards.filter((card) => card.bookId != parseInt(bookToEdit.id));
     editPopup.style.display = "none";
+
+    saveData("library-books", Books);
+    saveData("library-cards", Cards);
+
+    renderBooks();
+    renderCards();
   });
 } catch (error) {
   console.log(error);
@@ -679,7 +684,7 @@ try {
       });
     } else if (sortBy == "borrow") {
       Cards.sort((a, b) => {
-        if (a.borrowDate === null && b.borrowDate === null) return 0; // Both are null, no change
+        if (a.borrowDate === null && b.borrowDate === null) return 0; // if both are null, no change
         if (a.borrowDate === null) return 1;
         if (b.borrowDate === null) return -1;
 
@@ -748,3 +753,105 @@ try {
 } catch (error) {
   console.log(error);
 }
+// Initialize borrowed counts if they don't exist
+function initializeBorrowedCounts() {
+  Books.forEach((book) => {
+    if (book.borrowedCount === undefined) {
+      book.borrowedCount = Cards.filter(
+        (card) => card.bookId === book.id
+      ).length;
+    }
+  });
+
+  Vistiors.forEach((visitor) => {
+    if (visitor.booksBorrowed === undefined) {
+      visitor.booksBorrowed = Cards.filter(
+        (card) => card.vistorId === visitor.id
+      ).length;
+    }
+  });
+
+  saveData("library-books", Books);
+  saveData("library-visitors", Vistiors);
+}
+
+function getMostPopularBooks(limit = 5) {
+  return [...Books]
+    .sort((a, b) => b.borrowedCount - a.borrowedCount)
+    .slice(0, limit);
+}
+
+function getMostActiveVisitors(limit = 5) {
+  return [...Vistiors]
+    .sort((a, b) => b.booksBorrowed - a.booksBorrowed)
+    .slice(0, limit);
+}
+
+function renderStatistics() {
+  const sortBy = document.querySelector("select").value;
+  const topBookList = document.querySelector(".topBookList");
+  const topVisitorList = document.querySelector(".topVisitorList");
+
+  topBookList.innerHTML = "";
+  topVisitorList.innerHTML = "";
+
+  if (sortBy === "popular-books") {
+    const popularBooks = getMostPopularBooks();
+
+    topBookList.innerHTML = `
+      <ul class="header">
+        <li>Book Name</li>
+        <li>Author</li>
+        <li>Times Borrowed</li>
+      </ul>
+    `;
+
+    popularBooks.forEach((book) => {
+      const bookItem = document.createElement("ul");
+      bookItem.classList.add("items");
+      bookItem.innerHTML = `
+        <li>${book.name}</li>
+        <li>${book.author}</li>
+        <li>${book.borrowedCount}</li>
+      `;
+      topBookList.appendChild(bookItem);
+    });
+  } else if (sortBy === "active-visitor") {
+    const activeVisitors = getMostActiveVisitors();
+
+    topVisitorList.innerHTML = `
+      <ul class="header">
+        <li>Visitor Name</li>
+        <li>Phone</li>
+        <li>Books Borrowed</li>
+      </ul>
+    `;
+
+    activeVisitors.forEach((visitor) => {
+      const visitorItem = document.createElement("ul");
+      visitorItem.classList.add("items");
+      visitorItem.innerHTML = `
+        <li>${visitor.name}</li>
+        <li>${visitor.phone}</li>
+        <li>${visitor.booksBorrowed}</li>
+      `;
+      topVisitorList.appendChild(visitorItem);
+    });
+  }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  try {
+    initializeBorrowedCounts();
+
+    document
+      .getElementById("sortBtn")
+      .addEventListener("click", renderStatistics);
+
+    //default
+    document.querySelector("select").value = "popular-books";
+    renderStatistics();
+  } catch (error) {
+    console.log(error);
+  }
+});

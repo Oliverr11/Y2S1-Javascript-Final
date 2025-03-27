@@ -98,7 +98,9 @@ nav {
 
 .bookList .header,
 .visitorList .header,
-.cardList .header {
+.cardList .header,
+.topBookList .header,
+.topVisitorList .header {
   display: flex;
   list-style: none;
   background-color: #183b4e;
@@ -107,7 +109,9 @@ nav {
 
 .bookList .header li,
 .visitorList .header li,
-.cardList .header li {
+.cardList .header li,
+.topBookList .header li,
+.topVisitorList .header li {
   width: 50%;
   padding: 1%;
   border: 1px solid black;
@@ -115,17 +119,46 @@ nav {
 
 .bookList .items,
 .visitorList .items,
-.cardList .items {
+.cardList .items,
+.topVisitorList .items,
+.topBookList .items {
   transition: 0.8s;
 }
 .bookList .items:hover,
 .visitorList .items:hover,
-.cardList .items:hover {
+.cardList .items:hover,
+.topVisitorList .items:hover,
+.topBookList .items:hover {
   transition: 0.2s;
   background-color: #dda853;
   box-shadow: 1px 2px 15px #183b4e;
   transform: scale(1.05);
   font-weight: bold;
+}
+.bookList,
+.visitorList,
+.cardList,
+.topBookList,
+.topVisitorList {
+  margin: 0;
+}
+.bookList .items,
+.visitorList .items,
+.cardList .items,
+.topBookList .items,
+.topVisitorList .items {
+  padding: 0;
+  display: flex;
+  list-style: none;
+}
+.bookList .items li,
+.visitorList .items li,
+.cardList .items li,
+.topBookList .items li,
+.topVisitorList .items li {
+  width: 50%;
+  padding: 1%;
+  border: 1px solid black;
 }
 #id {
   text-align: center;
@@ -149,25 +182,6 @@ nav {
 .items,
 .header {
   margin-bottom: 0;
-}
-.bookList,
-.visitorList,
-.cardList {
-  margin: 0;
-}
-.bookList .items,
-.visitorList .items,
-.cardList .items {
-  padding: 0;
-  display: flex;
-  list-style: none;
-}
-.bookList .items li,
-.visitorList .items li,
-.cardList .items li {
-  width: 50%;
-  padding: 1%;
-  border: 1px solid black;
 }
 
 .popup-content {
