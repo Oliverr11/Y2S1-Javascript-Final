@@ -753,38 +753,17 @@ try {
 } catch (error) {
   console.log(error);
 }
-// Initialize borrowed counts if they don't exist
-function initializeBorrowedCounts() {
-  Books.forEach((book) => {
-    if (book.borrowedCount === undefined) {
-      book.borrowedCount = Cards.filter(
-        (card) => card.bookId === book.id
-      ).length;
-    }
-  });
 
-  Vistiors.forEach((visitor) => {
-    if (visitor.booksBorrowed === undefined) {
-      visitor.booksBorrowed = Cards.filter(
-        (card) => card.vistorId === visitor.id
-      ).length;
-    }
-  });
-
-  saveData("library-books", Books);
-  saveData("library-visitors", Vistiors);
-}
-
-function getMostPopularBooks(limit = 5) {
+function getMostPopularBooks() {
   return [...Books]
     .sort((a, b) => b.borrowedCount - a.borrowedCount)
-    .slice(0, limit);
+    .slice(0, 5);
 }
 
-function getMostActiveVisitors(limit = 5) {
+function getMostActiveVisitors() {
   return [...Vistiors]
     .sort((a, b) => b.booksBorrowed - a.booksBorrowed)
-    .slice(0, limit);
+    .slice(0, 5);
 }
 
 function renderStatistics() {
@@ -840,18 +819,13 @@ function renderStatistics() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  try {
-    initializeBorrowedCounts();
+try {
+  document
+    .getElementById("sortBtn")
+    .addEventListener("click", () => renderStatistics());
 
-    document
-      .getElementById("sortBtn")
-      .addEventListener("click", renderStatistics);
-
-    //default
-    document.querySelector("select").value = "popular-books";
-    renderStatistics();
-  } catch (error) {
-    console.log(error);
-  }
-});
+  document.querySelector("select").value = "popular-books";
+  renderStatistics();
+} catch (error) {
+  console.log(error);
+}
