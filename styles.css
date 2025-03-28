@@ -281,3 +281,83 @@ footer p {
 .popup-content button:hover {
   background-color: #45a049;
 }
+
+.bookList .items li {
+  width: 160px;
+}
+
+.bookList .header li {
+  width: 160px;
+}
+@media (max-width: 995px) {
+  .form-section {
+    justify-content: center;
+    gap: 25px;
+  }
+}
+@media (max-width: 775px) {
+  .form-section {
+    justify-content: center;
+    gap: 25px;
+  }
+  .header li {
+    font-size: 10px;
+  }
+  .items li {
+    font-size: 10px;
+  }
+}
+@media (max-width: 480px) {
+  .add-book p,
+  .add-visitor p,
+  .add-card p {
+    font-size: 20px;
+  }
+  .add-book button,
+  .add-visitor button,
+  .add-card button {
+    font-size: 10px;
+    height: 40px;
+  }
+  .form-section .sort,
+  .form-section .search {
+    width: 100%;
+  }
+  .form-section select,
+  .form-section input {
+    margin: 0;
+  }
+  .form-section button {
+    width: 15%;
+    font-size: 10px;
+  }
+  .form-section p {
+    font-size: 10px;
+  }
+  #search,
+  .sort select,
+  .form-section button {
+    height: 40px;
+    font-size: 10px;
+  }
+  .sort,
+  .search {
+    justify-content: space-between;
+  }
+  .header li {
+    font-size: 10px;
+  }
+  .items li {
+    font-size: 10px;
+  }
+  .bookList .items li {
+    width: 80px;
+  }
+
+  .bookList .header li {
+    width: 80px;
+  }
+  #return button {
+    font-size: 10px;
+  }
+}

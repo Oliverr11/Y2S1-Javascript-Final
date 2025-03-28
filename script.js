@@ -766,7 +766,26 @@ function getMostActiveVisitors() {
     .sort((a, b) => b.booksBorrowed - a.booksBorrowed)
     .slice(0, 5);
 }
+function initializeBorrowedCounts() {
+  Books.forEach((book) => {
+    if (book.borrowedCount === undefined) {
+      book.borrowedCount = Cards.filter(
+        (card) => card.bookId === book.id
+      ).length;
+    }
+  });
 
+  Vistiors.forEach((visitor) => {
+    if (visitor.booksBorrowed === undefined) {
+      visitor.booksBorrowed = Cards.filter(
+        (card) => card.vistorId === visitor.id
+      ).length;
+    }
+  });
+
+  saveData("library-books", Books);
+  saveData("library-visitors", Vistiors);
+}
 function renderStatistics() {
   const sortBy = document.querySelector("select").value;
   const topBookList = document.querySelector(".topBookList");
@@ -821,6 +840,7 @@ function renderStatistics() {
 }
 
 try {
+  initializeBorrowedCounts();
   document
     .getElementById("sortBtn")
     .addEventListener("click", () => renderStatistics());
