@@ -231,11 +231,12 @@ nav {
 #bgFooter {
   padding: 0;
   margin: 0;
-  position: fixed;
+  position: relative;
   width: 100%;
   bottom: 0;
   background-color: #183b4e;
-  margin-top: 100px;
+  margin-top: 450px;
+  z-index: -1;
 }
 
 footer a,
