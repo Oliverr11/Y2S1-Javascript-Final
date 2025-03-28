@@ -3,6 +3,7 @@
   padding: 0;
   font-family: "Roboto", sans-serif;
 }
+
 body {
   height: 100vh !important;
   background-color: #f5eedc !important;
@@ -230,8 +231,9 @@ nav {
 #bgFooter {
   padding: 0;
   margin: 0;
-  position: relative;
-  top: 250px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
   background-color: #183b4e;
   margin-top: 100px;
 }
@@ -357,7 +359,21 @@ footer p {
   .bookList .header li {
     width: 80px;
   }
+  .cardList .items li {
+    width: 100px;
+  }
+
+  .cardList .header li {
+    width: 100px;
+  }
   #return button {
     font-size: 10px;
+  }
+  #bgFooter {
+    font-size: 10px;
+  }
+  #bgFooter p {
+    margin: 0;
+    padding: 0;
   }
 }
