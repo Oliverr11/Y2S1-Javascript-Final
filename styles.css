@@ -4,6 +4,7 @@
   font-family: "Roboto", sans-serif;
 }
 body {
+  height: 100vh !important;
   background-color: #f5eedc !important;
 }
 nav {
@@ -132,7 +133,7 @@ nav {
   transition: 0.2s;
   background-color: #dda853;
   box-shadow: 1px 2px 15px #183b4e;
-  transform: scale(1.05);
+  transform: scale(1.02);
   font-weight: bold;
 }
 .bookList,
@@ -226,7 +227,19 @@ nav {
   width: 450px;
   border-radius: 8px;
 }
+#bgFooter {
+  padding: 0;
+  margin: 0;
+  position: relative;
+  top: 250px;
+  background-color: #183b4e;
+  margin-top: 100px;
+}
 
+footer a,
+footer p {
+  color: white !important;
+}
 .close-btn {
   position: absolute;
   top: 10px;

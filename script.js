@@ -669,6 +669,7 @@ try {
 }
 
 try {
+  //sort Cards
   document.getElementById("sortBtn").addEventListener("click", () => {
     let sortBy = document.querySelector("select").value;
     if (sortBy == "return") {
