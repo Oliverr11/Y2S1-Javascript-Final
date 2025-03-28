@@ -782,7 +782,7 @@ function renderStatistics() {
       <ul class="header">
         <li>Book Name</li>
         <li>Author</li>
-        <li>Times Borrowed</li>
+        <li>Borrowed</li>
       </ul>
     `;
 
