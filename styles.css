@@ -104,6 +104,62 @@ nav {
 .topBookList .header,
 .topVisitorList .header {
   display: flex;
+  width: 100%;
+  list-style: none;
+  background-color: #183b4e;
+  color: #dda853;
+}
+.bookList .header li,
+.visitorList .header li,
+.cardList .header li,
+.topBookList .header li,
+.topVisitorList .header li,
+.bookList .items li,
+.visitorList .items li,
+.cardList .items li,
+.topBookList .items li,
+.topVisitorList .items li {
+  padding: 10px;
+  border: 1px solid black;
+  width: 80% !important;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+.bookList .items,
+.visitorList .items,
+.cardList .items,
+.topBookList .items,
+.topVisitorList .items {
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  list-style: none;
+}
+.header {
+  margin-bottom: 0;
+}
+#id,
+#pages,
+#copies,
+#edit,
+#year {
+  width: 250px !important;
+}
+/* .header {
+  padding: 0;
+}
+.header li {
+  font-weight: bold;
+}
+
+.bookList .header,
+.visitorList .header,
+.cardList .header,
+.topBookList .header,
+.topVisitorList .header {
+  display: flex;
   list-style: none;
   background-color: #183b4e;
   color: #dda853;
@@ -184,7 +240,7 @@ nav {
 .items,
 .header {
   margin-bottom: 0;
-}
+} */
 
 .popup-content {
   background: white;
@@ -285,13 +341,13 @@ footer p {
   background-color: #45a049;
 }
 
-.bookList .items li {
+/* .bookList .items li {
   width: 160px;
 }
 
 .bookList .header li {
   width: 160px;
-}
+} */
 @media (max-width: 995px) {
   .form-section {
     justify-content: center;

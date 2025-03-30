@@ -839,14 +839,31 @@ function renderStatistics() {
   }
 }
 
-try {
-  initializeBorrowedCounts();
-  document
-    .getElementById("sortBtn")
-    .addEventListener("click", () => renderStatistics());
+// try {
+//   initializeBorrowedCounts();
+//   document
+//     .getElementById("sortBtn")
+//     .addEventListener("click", () => renderStatistics());
 
-  document.querySelector("select").value = "popular-books";
-  renderStatistics();
-} catch (error) {
-  console.log(error);
-}
+//   document.querySelector("select").value = "popular-books";
+//   renderStatistics();
+// } catch (error) {
+//   console.log(error);
+// }
+document.addEventListener("DOMContentLoaded", () => {
+  try {
+    initializeBorrowedCounts();
+    document
+      .getElementById("sortBtn")
+      ?.addEventListener("click", () => renderStatistics());
+
+    const selectElement = document.querySelector("select");
+    if (selectElement) {
+      selectElement.value = "popular-books";
+    }
+
+    renderStatistics();
+  } catch (error) {
+    console.error("Error:", error);
+  }
+});
