@@ -135,7 +135,20 @@ nav {
   margin: 0;
 
   display: flex;
+  transition: 0.2s;
+
   list-style: none;
+}
+.bookList .items:hover,
+.visitorList .items:hover,
+.cardList .items:hover,
+.topVisitorList .items:hover,
+.topBookList .items:hover {
+  transition: 0.2s;
+  background-color: #dda853;
+  box-shadow: 1px 2px 15px #183b4e;
+  transform: scale(1.02);
+  font-weight: bold;
 }
 .header {
   margin-bottom: 0;
@@ -146,6 +159,9 @@ nav {
 #edit,
 #year {
   width: 250px !important;
+}
+#edit {
+  text-align: center;
 }
 /* .header {
   padding: 0;
